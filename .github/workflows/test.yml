@@ -25,6 +25,8 @@ jobs:
         endpoint: ${{ secrets.OSS_ENDPOINT }}
         access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
         access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+    - name: Deply To OSS
+      run: ossutil cp src ${{ secrets.OSS_BUCKET }} -rf
     - run: ossutil -v
     - run: ossutil ls > /dev/null
       shell: bash
